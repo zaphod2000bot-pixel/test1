@@ -24,6 +24,13 @@ jobs:
         with:
           flutter-version: '3.10.5'
 
+      - name: Ensure Flutter project
+        working-directory: flutter_greet
+        run: |
+          if [ ! -d android ] ; then
+            flutter create --project-name flutter_greet .
+          fi
+
       - name: Flutter pub get
         working-directory: flutter_greet
         run: flutter pub get
